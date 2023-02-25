@@ -35,7 +35,16 @@ let pokemonRepository = (function () {
             if(typeof(pokemon)!== 'object'){
                 return 'custom error: wrong input type';
             }
-            pokemonList.push(pokemon);
+            // else if(Object.keys(pokemon) === ['name', 'height', 'types']){
+            //     pokemonList.push(pokemon);
+            //     console.log(pokemonList);
+            //     return pokemonList;
+            // }
+            else{
+                pokemonList.push(pokemon);
+                console.log(pokemonList);
+                return 'unexpected error'
+            }
         },
         getAll: function(){
             return pokemonList;
@@ -44,20 +53,9 @@ let pokemonRepository = (function () {
 })();
 
 console.log(pokemonRepository.getAll());
-console.log(pokemonRepository.add( {name: 'Raichu', height: '0.8', types: ['electric']}));
+console.log(pokemonRepository.add( {name: 'Raichu', height: 0.8, types: ['electric']}));
 console.log(pokemonRepository.getAll());
-
 console.log(pokemonRepository.add(218));
-// function printArrayDetails(list) {
-//     for (let i = 0; i < list.length; i++) {
-//         document.write(`<p>${list[i].name} (${list[i].height}m) type: ${list[i].types}`);
-//         if (list[i].height < .5) {
-//             document.write(' <--- What a small pokemon!');
-//         }
-//         document.write(`</p>`)
-//     }
-//     return;
-// }
 
 function printPokemonList(list) {
     document.write('<p>' + list.name + ' (' + list.height + 'm) ' + list.types);
@@ -66,10 +64,5 @@ function printPokemonList(list) {
     }
     document.write(`</p>`);
 }
-
-
-// printArrayDetails(pokemonList);
-
-// document.write('<p> ======= FOR:EACH LOOP BELOW ======= <br>');
 
 pokemonRepository.getAll().forEach(printPokemonList);
