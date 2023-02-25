@@ -24,14 +24,28 @@ let pokemonList = [
         types: ['electric']}
 ];
 
-for(let i = 0; i<pokemonList.length; i++){
-    document.write(`<br>${pokemonList[i].name} (${pokemonList[i].height}m) type: ${pokemonList[i].types}`);
-    if(pokemonList[i].height < .5){
-        document.write(' <--- What a small pokemon!');
+function printArrayDetails(list){
+    for(let i = 0; i<list.length; i++){
+        document.write(`<p>${list[i].name} (${list[i].height}m) type: ${list[i].types}`);
+        if(list[i].height < .5){
+            document.write(' <--- What a small pokemon!');
+        }
+        document.write(`</p>`)
     }
+    return;
 }
 
-// console.log(pokemonList[0]);
-// console.log(pokemonList[1]);
-// console.log(pokemonList[2]);
-// console.log(pokemonList[3]);
+function printPokemonList(list){
+    document.write('<p>' + list.name + ' (' + list.height + 'm) ' + list.types);
+    if(list.height < .5){
+        document.write(' <--- What a small pokemon!');
+    }
+    document.write(`</p>`);
+}
+
+
+printArrayDetails(pokemonList);
+
+document.write('<p> ======= FOR:EACH LOOP BELOW ======= <br>');
+
+pokemonList.forEach(printPokemonList);
