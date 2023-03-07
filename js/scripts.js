@@ -30,32 +30,52 @@ let pokemonRepository = (function () {
         }
     ];
 
-    return{
-        add: function(pokemon){
-            if(typeof(pokemon)!== 'object'){
-                return 'custom error: wrong input type';
-            }
-            // else if(Object.keys(pokemon) === ['name', 'height', 'types']){
-            //     pokemonList.push(pokemon);
-            //     console.log(pokemonList);
-            //     return pokemonList;
-            // }
-            else{
-                pokemonList.push(pokemon);
-                console.log(pokemonList);
-                return 'unexpected error'
-            }
-        },
-        getAll: function(){
-            return pokemonList;
+    function add(pokemon){
+        if(
+            typeof pokemon === 'object' &&
+            'name' in pokemon &&
+            'height' in pokemon &&
+            'types' in pokemon
+        ){
+            pokemonList.push(pokemon);
+        } else {
+            console.log('pokemon input is not correct')
         }
     }
+
+    function getAll(){
+        return pokemonList;
+    }
+
+    function addListItem(pokemon){
+        let visibleList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = pokemon.name;
+        button.classList.add('button-class');
+        listItem.appendChild(button);
+        visibleList.appendChild(listItem);
+        button.addEventListener('click', function (event){
+            showDetails(pokemon.name);
+        });
+    }
+
+    function showDetails(pokemon){
+        console.log(pokemon);
+    }
+
+    return{
+         add: add,
+         getAll: getAll,
+         addListItem: addListItem,
+         showDetails: showDetails
+        };
 })();
 
 console.log(pokemonRepository.getAll());
-console.log(pokemonRepository.add( {name: 'Raichu', height: 0.8, types: ['electric']}));
 console.log(pokemonRepository.getAll());
 console.log(pokemonRepository.add(218));
+console.log(pokemonRepository.add( {name: 'Raichu', height: 0.8, types: ['electric']}));
 
 function printPokemonList(list) {
     document.write('<p>' + list.name + ' (' + list.height + 'm) ' + list.types);
@@ -65,4 +85,16 @@ function printPokemonList(list) {
     document.write(`</p>`);
 }
 
-pokemonRepository.getAll().forEach(printPokemonList);
+pokemonRepository.getAll().forEach(function (pokemon){
+    pokemonRepository.addListItem(pokemon);
+});
+
+// pokemonRepository.getAll().forEach(function (pokemon){
+//     let visibleList = document.querySelector('.pokemon-list');
+//     let listItem = document.createElement('li');
+//     let button = document.createElement('button');
+//     button.innerText = pokemon.name;
+//     button.classList.add('button-class');
+//     listItem.appendChild(button);
+//     visibleList.appendChild(listItem);
+// });
