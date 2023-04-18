@@ -9,6 +9,9 @@ Using Bootstrap, modals are created via eventhandlers on each button. JQuery is 
 ## Resources:
 
 > Bootstrap (min) version 4.3.1
+
 > JQuery version 3.5.1
+
 > JQuery-ui 1.12.1
+
 > Popper 1.14.7
