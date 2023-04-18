@@ -4,13 +4,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="poke.ico"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="css/styles.css">
-  <title>Simple JS App</title>
+  <link rel="stylesheet" href="dist/css/styles.css">
+  <title>Pokedex JS Demo</title>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Pokedex</a>
+    <a class="navbar-brand" href="./index.html">Pokedex</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -18,13 +19,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="/index.html">Home<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="./index.html">Home<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/index.html">Placeholder1</a>
+          <a class="nav-link" href="./index.html">Placeholder1</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/index.html">Placeholder2</a>
+          <a class="nav-link" href="./index.html">Placeholder2</a>
         </li>
       </ul>
     </div>
@@ -36,10 +37,6 @@
     </div>
   </nav>
 
-
-
-
-
 </head>
 
 <body>
@@ -47,17 +44,19 @@
     aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title modal-text" id="modal-container"></h2>
+        <div class="modal-header text-center">
+          <h2 class="col-12 modal-title text-center" id="modal-container">..loading..</h2>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body modal-text">
-          <div class="modal-info modal-text">
+        <div class="modal-body text-center">
+          <div class="spriteImage">
+            <p class="spriteLoad"></p>
           </div>
         </div>
         <div class="modal-footer">
+          <p class ="footer-text"></p>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -65,12 +64,11 @@
   </div>
 
 
-
   <ul class="pokemon-list list-group"></ul>
 
-  <script src="js/promise-polyfill.js"></script>
-  <script src="js/fetch-polyfill.js"></script>
-  <script src="js/scripts.js"></script>
+  <script src="dist/js/promise-polyfill.js"></script>
+  <script src="dist/js/fetch-polyfill.js"></script>
+  <script src="dist/js/scripts.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
     crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"

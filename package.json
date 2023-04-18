@@ -1,0 +1,16 @@
+{
+  "name": "first_js_project",
+  "version": "1.0.0",
+  "description": "'dist' folder contains 'mimified' files of JS and CSS to extract extraneous code to minimize network latency.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.0",
+    "@typescript-eslint/parser": "^5.59.0",
+    "eslint": "^8.38.0"
+  }
+}
