@@ -1,6 +1,6 @@
-# First JS Project
+# Modeling a Pokedex
 
-## Modeling a Pokedex, Description
+## Description
 
 This project leverages Ajax to access https://pokedex.org/ and their educational API webhooks to allow for a JSON file to be received by the client with a specific Pokemon's information. Polyfills are also used to help handle this connection and promise(s).
 
